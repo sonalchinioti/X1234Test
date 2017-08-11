@@ -6,4 +6,10 @@ Rails.application.routes.draw do
      get '/start_fb_posting' => 'facebook_posting#start_posting'
 
 
+
+
+       root 'facebook_posting#index'
+
+
+
 end
