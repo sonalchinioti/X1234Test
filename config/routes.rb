@@ -7,8 +7,8 @@ Rails.application.routes.draw do
 
 
 
-
-       root 'facebook_posting#index'
+    
+    root 'facebook_posting#index'
 
 
 
