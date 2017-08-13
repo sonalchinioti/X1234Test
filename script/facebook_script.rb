@@ -143,7 +143,7 @@ begin
 	message = "Script has been loaded"
 	send_mails message , "Posting for the session started..."
 	loop do
-		@posting_till_date =   Marshal.load File.read('./data/poseted_on_facebook.txt')
+		@posting_till_date =   Marshal.load File.read('./data/posted_on_facebook.txt')
 	    total_post = 0
 		name_of_pages.each do |page_name|
 		list_of_post = @page.get_connections(page_name, 'posts' , fields:'id,message ,link,story,attachments,source ,likes.summary(true),comments.summary(true)')
