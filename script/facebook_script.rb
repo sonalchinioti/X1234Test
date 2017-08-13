@@ -27,6 +27,7 @@
 require'koala'
 require 'gmail'
 
+
 def send_mails  message , subject_title
  gmail = Gmail.connect( "buredin.com@gmail.com", "loveisnoise" )
  email = gmail.compose do
@@ -139,7 +140,8 @@ begin
 	# "SMHoaxSlayer"  "IndianNationalCongress"
 	@page = Koala::Facebook::API.new("EAAKY9cESanABAOYZA8oY1Pa4IUMMkINze3fG5tsxlbiopKvWpaC7Gj2tS7LzdVZCyo6LMvfDCl3LB3IPibGAFMSBEaZANOZCMhtSB23tshkMHDVb1QtNWY1ZAQkw2ZA6HZCQsKXZBCBKhlz1V8fRZCxJkZCUT7q1YWhywpr2ilhrPe1fjuLqkTF377")
 	name_of_pages = ["SusuSwamy","IronyOfindiaOfficial"]
-	
+	message = "Script has been loaded"
+	send_mails message , "Posting for the session started..."
 	loop do
 		@posting_till_date =   Marshal.load File.read('./data/poseted_on_facebook.txt')
 	    total_post = 0
