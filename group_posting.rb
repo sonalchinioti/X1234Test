@@ -14,7 +14,7 @@ return true
 end 
 
 def post group_id , sharing_link
-@graph.put_object(group_id, "feed",  "link" => sharing_link)
+# @graph.put_object(group_id, "feed",  "link" => sharing_link)
 puts "GrpPosting:posted for this group "+ group_id.to_s
 @postd_for_this_session << group_id
 sleep 60
