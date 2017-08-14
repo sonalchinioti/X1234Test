@@ -10,7 +10,8 @@ end
 gem 'rails', '~> 5.0.4'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
-gem 'pg'
+# gem 'pg'
+gem 'mongoid'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
