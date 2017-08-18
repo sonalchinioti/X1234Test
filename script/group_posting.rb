@@ -24,7 +24,7 @@ end
 #-----------sonal sharing -  -----------#
 	puts "posting for sonal"
 	group_id = ["798677273502250" ,"AAPKaUP"  ,"186105331856690" ,"1401219453534997" ,"530334387166883","733568336812302" , "232531446907981" ,"342350035861305" , "1573983172820156" ,"emutiyar" ,"495667177157726"]
-	@graph = Koala::Facebook::API.new("EAAKY9cESanABAPc11KpMHbPpYxB1wZAqRBJHZATtsNXOZCTtZBghe5RZCj0XWQfqu5zrYB1E33hnm47PYCrxMlRWIwIjDY8rlTmoMykqegfBOGZBfBZA002p6SZBgrnmcqgEMcGFNAtTKUfcbqT7OSsQKuypeJsbMvKnwUjGnWZCBRgZDZD")
+	@graph = Koala::Facebook::API.new("EAAKY9cESanABAMCyAcjvbCizQZBD2UfACfGdFA6NYI2kAJ1LPlly2cZBZCwEP5WAZBogPPCtAT1Bx3lTZC2sXZBwehOTKujYi066srIhyTQ6dR2QKDLKiGXCC2RNMaEP6P5TAQLYezDfSxY57DrFOCC54yawEmRYUN8swH8qIp9gZDZD")
 	group_id.each do | group_id |
 	begin
 	if is_already_posted group_id
