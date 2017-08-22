@@ -36,6 +36,7 @@ def posted_link link
 	posted = Posted.new
 	posted.link = link 
 	posted.save!
+	puts "post link saved with id " +posted.id.to_s
 	
 end 
 def send_mails  message , subject_title
@@ -63,7 +64,7 @@ end
 def is_post_already_posted item
 
 	post= Posted.where(:link => item["link"]).first
-		 if !post.nil? && item["likes"]["summary"]["total_count"] > 50
+		 if !post.nil? 
 		     return false 
 		 else 
 
@@ -135,9 +136,9 @@ end
 
 begin
 
-	# "SMHoaxSlayer"  "IndianNationalCongress"
+	# "SMHoaxSlayer"  "IndianNationalCongress" "IronyOfindiaOfficial"
 	@page = Koala::Facebook::API.new("EAAKY9cESanABAOYZA8oY1Pa4IUMMkINze3fG5tsxlbiopKvWpaC7Gj2tS7LzdVZCyo6LMvfDCl3LB3IPibGAFMSBEaZANOZCMhtSB23tshkMHDVb1QtNWY1ZAQkw2ZA6HZCQsKXZBCBKhlz1V8fRZCxJkZCUT7q1YWhywpr2ilhrPe1fjuLqkTF377")
-	name_of_pages = ["SusuSwamy","hamarastateuttarpradesh","IronyOfindiaOfficial"]
+	name_of_pages = ["SusuSwamy","hamarastateuttarpradesh","FekuExpress2.0"]
 	message = "Script has been loaded"
 	send_mails message , "Posting for the session started..."
 	loop do
