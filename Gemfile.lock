@@ -119,6 +119,7 @@ GEM
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
     oauth (0.5.1)
+    pg (0.20.0)
     public_suffix (2.0.5)
     puma (3.9.1)
     rack (2.0.3)
@@ -218,6 +219,7 @@ DEPENDENCIES
   koala
   listen (~> 3.0.5)
   mongoid
+  pg
   puma (~> 3.0)
   rails (~> 5.0.4)
   sass-rails (~> 5.0)

@@ -10,51 +10,57 @@ def twitter_client
 end
 
 
-  handles = ["RavishKumarNDTV ‏" ,  "BDUTT" , "Shehla_Rashid" ,"ShashiTharoor" , "sagarikaghose" , "RanaAyyub" , "OfficeOfRG" ,"IYC" ,"PrannoyRoyNDTV" ,"MamataOfficial" , "laluprasadrjd" ,"SalmanNizami_" ,"rssurjewala" ,"JM_Scindia" , "ashokgehlot51"]
-  tweet_list = []
-  total_no_of_tweets = 0
-  allready_retweeted = 0
-  handles.each do |handle_name|
-  tweet = twitter_client.user_timeline(handle_name)
+loop do
 
-  if tweet_list.any?
+        handles = ["RavishKumarNDTV ‏" ,  "BDUTT" , "Shehla_Rashid" ,"ShashiTharoor" , "sagarikaghose" , "RanaAyyub" , "OfficeOfRG" ,"IYC" ,"PrannoyRoyNDTV" ,"MamataOfficial" , "laluprasadrjd" ,"SalmanNizami_" ,"rssurjewala" ,"JM_Scindia" , "ashokgehlot51"]
+        tweet_list = []
+        total_no_of_tweets = 0
+        allready_retweeted = 0
+        handles.each do |handle_name|
+        tweet = twitter_client.user_timeline(handle_name)
 
-  tweet_list = tweet_list.zip(tweet).flatten.compact
+        if tweet_list.any?
 
-
-  else
-    tweet.each do|tweet|  
-       tweet_list << tweet 
-
-  end 
-  end 
-  end
-
-  tweet_list.each do |tweet| 
+        tweet_list = tweet_list.zip(tweet).flatten.compact
 
 
-  begin
+        else
+          tweet.each do|tweet|  
+             tweet_list << tweet 
 
-  if !tweet.retweeted? &&  tweet.retweet_count > 10
-  twitter_client.retweet tweet
-  total_no_of_tweets = total_no_of_tweets +1
-  puts "one tweet posted putting thread to sleep for 2 mins " + total_no_of_tweets.to_s + " Total no of posts: " + tweet_list.count.to_s
-  sleep 120
-  else 
+        end 
+        end 
+        end
 
-    allready_retweeted = allready_retweeted +1
-  puts "Tweet has already been retweeted " + allready_retweeted.to_s + " Total no of posts: " + tweet_list.count.to_s
-
-  end 
-  rescue Exception => e
-  	
-    puts e 
-    next 
-  end
-
-  end 
+        tweet_list.each do |tweet| 
 
 
+        begin
+
+        if !tweet.retweeted? &&  tweet.retweet_count > 10
+        twitter_client.retweet tweet
+        total_no_of_tweets = total_no_of_tweets +1
+        puts "one tweet posted putting thread to sleep for 2 mins " + total_no_of_tweets.to_s + " Total no of posts: " + tweet_list.count.to_s
+        sleep 120
+        else 
+
+          allready_retweeted = allready_retweeted +1
+        puts "Tweet has already been retweeted " + allready_retweeted.to_s + " Total no of posts: " + tweet_list.count.to_s
+
+        end 
+        rescue Exception => e
+        	
+          puts e 
+          next 
+        end
+
+        end 
+
+
+        puts "All the tweet has been done ptting thread to sleep for twenty  mins"
+        sleep 1200
+
+end 
 
 
 #for retwetting tweetss

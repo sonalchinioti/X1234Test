@@ -13,6 +13,7 @@
 #page acess token
 
 
+
 # https://graph.facebook.com/VIDEO_ID/picture
  		
 
@@ -30,21 +31,20 @@ require 'gmail'
 require File.expand_path("../../config/environment", __FILE__)
 
 
-def posted_link link , page_name
+def posted_link link 
 
 	posted = Posted.new
 	posted.link = link 
-	posted.page_name = page_name
 	posted.save!
 	puts "post link saved with id " +posted.id.to_s
 	
 end 
-def send_mails  message , subject_title , name
+def send_mails  message , subject_title
  gmail = Gmail.connect( "buredin.com@gmail.com", "loveisnoise" )
  email = gmail.compose do
 
 	  to  ["sonalchinioti@gmail.com" , "lokesh.vaishnavi@gmail.com"]
-	  from    name
+	  from    "buredin.com"
 	  subject   subject_title
 	  
 	  #for adding html template 
@@ -61,10 +61,9 @@ email.deliver!
 end 
 
 
-#including name in where statement 
 def is_post_already_posted item
 
-	post= Posted.where(:link => item["link"] ).first
+	post= Posted.where(:link => item["link"]).first
 		 if !post.nil? 
 		     return false 
 		 else 
@@ -74,7 +73,7 @@ def is_post_already_posted item
 		   end  
 end 
 
-def post_on_page post , name 
+def post_on_page post
 
 		#no of likes 
 	# if  post["likes"]["summary"]["total_count"] > 0
@@ -113,11 +112,11 @@ def post_on_page post , name
 		else
 			# without facebook link in story
 	       if !post["message"].nil?
-		   @page.put_object(name, "feed", "message" => post["message"] ,  "link" => post["link"])
+		   @page.put_object("buredincom", "feed", "message" => post["message"] ,  "link" => post["link"])
 		   	puts"Facebook posting done for link with message ."
 
 	       else 
-		   @page.put_object(name, "feed",  "link" => post["link"])
+		   @page.put_object("buredincom", "feed",  "link" => post["link"])
 		   	puts"Facebook posting done for link with message ."
 
 	       end 
@@ -136,14 +135,12 @@ end
 
 
 begin
-     
-    script_name = ARGV[0]
-    facebook_script = FacebookScript.where(:name => script_name).first
+
 	# "SMHoaxSlayer"  "IndianNationalCongress" "IronyOfindiaOfficial"
-	@page = Koala::Facebook::API.new(facebook_script.token)
-	name_of_pages = facebook_script.page_names
+	@page = Koala::Facebook::API.new("EAAKY9cESanABAPMgAuxcLYgU1DqWZBzuYTq9Ook8vyNV3ty52ZC068SX0ANafZCDV1IvwMJkLusMD6WnRiALRFWXw9y1pgwY0vWlC5Xa4ZCpFErSwIUmOCiIZBBsuIJuBmezSebXNTfFNuLTEt1EuNYcbhZCZCVqmNlkiMIeFWfvT980FlLfKBF")
+	name_of_pages = ["SusuSwamy","hamarastateuttarpradesh","FekuExpress2.0"]
 	message = "Script has been loaded"
-	send_mails message , "Posting for the session started..." , script_name
+	send_mails message , "Posting for the session started..."
 	loop do
 	    total_post = 0
 		name_of_pages.each do |page_name|
@@ -152,8 +149,8 @@ begin
 					list_of_post.each do |post|
 						begin
 				          if is_post_already_posted post 
-				          	  posted_link post["link"] , script_name
-							  post_on_page  post ,facebook_script.name 
+				          	  posted_link post["link"]
+							  post_on_page  post
 							  total_post = total_post  +1 
 							  puts"Facebook posting done ." + total_post.to_s
 							  sleep 1500

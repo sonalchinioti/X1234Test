@@ -1,0 +1,114 @@
+
+body {
+/*    font-family: lato;
+    font-size: 24px; */
+    line-height: 1.5;
+    color: #58595b;
+    padding-top: 30px;
+}
+
+.cover_pic img {
+    width:100%;
+}
+
+@font-face {
+  font-family: "lato";
+  src: url('./landing_page/fonts/Lato-Regular.ttf') format("truetype");
+}
+
+@font-face {
+  font-family: "chicken";
+  src: url('./landing_page/fonts/ClickerScript-Regular.ttf') format("truetype");
+}
+.mt_font{
+      font-family: chicken;
+      font-size: 25px;
+
+}
+/*.panel-body {
+    font-family: lato;
+    font-size: 24px;
+    line-height: 1.5;
+    color: #58595b;
+    padding-top: 100px;
+}*/
+.navbar{
+	background: #ffffff;
+	font-family: lato;
+	font-size: 15px;
+}
+
+.navbar ul li a:hover {background: #fafafa;}
+
+#MainText{
+	font-size: 40px;
+}
+
+
+.row {
+	margin-bottom: 25px;
+	margin-top: 10px;
+
+}
+
+.container{
+
+}
+
+.intrinsic-container {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+}
+ 
+/* 16x9 Aspect Ratio */
+.intrinsic-container-16x9 {
+  padding-bottom: 56.25%;
+}
+ 
+/* 4x3 Aspect Ratio */
+.intrinsic-container-4x3 {
+  padding-bottom: 75%;
+}
+ 
+.intrinsic-container iframe {
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.tagline p{
+  font-size: 25px !important;
+}
+
+.tagline h1{
+  font-size: 55px !important;
+}
+
+.Hipblog {
+  padding-top: 50px;
+}
+
+.kneeblog {
+  padding-top: 50px;
+}
+
+.amandua {
+  padding-left: 35px;
+}
+
+.dharmesh {
+  padding-left: 35px;
+}
+
+.profiles h4{
+  font-style: bold;
+  color: #887607;
+}
+
+.profiles p{
+  font-size: 15px !important;
+  font-style: normal; 
+}
+

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
 
     
-    root 'facebook_posting#index'
+     root 'landing_page#index' 
 
 
 

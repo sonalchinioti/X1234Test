@@ -6,6 +6,7 @@ class Posted
 
 
   field :link,                       :type => String
+  field :page_name,                  :type => String 
   
 
 
