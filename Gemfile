@@ -71,3 +71,6 @@ gem 'workers'
 
 gem 'mongoid'
 
+gem 'google_drive'
+
+
